@@ -1,78 +1,43 @@
-import './App.css';
-import ExpenseItem from './Components/ExpenseItem';
+import React from 'react';
 
-function App() {
+import Expenses from './Components/Expenses/Expenses';
+
+const App = () => {
   const expenses = [
     {
       id: 'e1',
       title: 'Toilet Paper',
       amount: 94.12,
       date: new Date(2020, 7, 14),
-      LocationOfExpenditure: 'Sydney'
     },
-    {
-      id: 'e2',
-      title: 'New TV',
-      amount: 799.49,
-      date: new Date(2021, 2, 12),
-      LocationOfExpenditure: 'NewYork'
-    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
     {
       id: 'e3',
       title: 'Car Insurance',
       amount: 294.67,
       date: new Date(2021, 2, 28),
-      LocationOfExpenditure: 'Mallial'
     },
     {
       id: 'e4',
       title: 'New Desk (Wooden)',
       amount: 450,
       date: new Date(2021, 5, 12),
-      LocationOfExpenditure: 'Jagtial'
     },
   ];
 
-  const expenseItems = [];
-
-  for (let i = 0; i < expenses.length; i++) {
-    const expense = expenses[i];
-    expenseItems.push(
-      <ExpenseItem
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-        LocationOfExpenditure={expense.LocationOfExpenditure}
-      />
-    );
-  }
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
 
   return (
     <div>
-      <h2>Let's get started!!!</h2>
-      {expenseItems}
+      <h2>Let's get started!</h2>
+      <Expenses items={expenses} />
     </div>
   );
 }
 
-
 export default App;
-
-
-// return (
-//   <div>
-//     <h2>Let's get started!</h2>
-//     {expenses.map((expense) => (
-//       <ExpenseItem
-//         key={expense.id}
-//         title={expense.title}
-//         amount={expense.amount}
-//         date={expense.date}
-//         LocationOfExpenditure={expense.LocationOfExpenditure}
-//       />
-//     ))}
-//   </div>
-// );
-// }
-
-// export default App;
