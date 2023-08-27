@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
-  const deleteHandler = () => {
-    const expenseItem = document.getElementById(props.id);
-    if (expenseItem) {
-      expenseItem.parentNode.removeChild(expenseItem.parentNode); // Remove the expense item's parent node (the Card element)
-    }
+  const [title, setTitle] = useState(props.title)
+  const titleHandler = () => {
+    setTitle('Updated!')
+    console.log(title)
+  };
+
+  const [amount, Setamount] = useState(props.amount)
+  const expenseHandler = () => {
+    Setamount('100')
+    console.log(amount)
   };
 
   return (
     <Card id={props.id} className='expense-item'>
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
-        <h2>{props.title}</h2>
-        <div className='expense-item__price'>${props.amount}</div>
+        <h2>{title}</h2>
+        <div className='expense-item__price'>${amount}</div>
       </div>
-      <button onClick={deleteHandler}>Delete</button>
+      <button onClick={titleHandler}>Change Title</button>
+      <button onClick={expenseHandler}>Change Expense</button>
     </Card>
   );
 };
