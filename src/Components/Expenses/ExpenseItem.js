@@ -10,21 +10,21 @@ const ExpenseItem = (props) => {
     console.log(title)
   };
 
-  const [amount, Setamount] = useState(props.amount)
-  const expenseHandler = () => {
-    Setamount('100')
-    console.log(amount)
-  };
+  // const [amount, Setamount] = useState(props.amount)
+  // const expenseHandler = () => {
+  //   Setamount('100')
+  //   console.log(amount)
+  // };
 
   return (
     <Card id={props.id} className='expense-item'>
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
         <h2>{title}</h2>
-        <div className='expense-item__price'>${amount}</div>
+        <div className='expense-item__price'>${props.amount}</div>
       </div>
       <button onClick={titleHandler}>Change Title</button>
-      <button onClick={expenseHandler}>Change Expense</button>
+   
     </Card>
   );
 };
